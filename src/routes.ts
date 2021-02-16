@@ -8,7 +8,7 @@ export const routes = [
     component: App,
   },
   {
-    path: '/simple_editor',
+    path: '/basic',
     exact: true,
     component: BasicEditor,
   },
