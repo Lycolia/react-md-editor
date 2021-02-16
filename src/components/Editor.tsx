@@ -1,4 +1,4 @@
-import { Editor, EditorState, RichUtils } from 'draft-js';
+import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
 
 export const EditorSample = () => {
@@ -6,13 +6,5 @@ export const EditorSample = () => {
     EditorState.createEmpty()
   );
 
-  RichUtils.handleKeyCommand(editorState);
-
-  return (
-    <Editor
-      editorState={editorState}
-      onChange={setEditorState}
-      handleKeyCommand={}
-    />
-  );
+  return <Editor editorState={editorState} onChange={setEditorState} />;
 };
