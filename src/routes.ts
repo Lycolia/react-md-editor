@@ -1,5 +1,6 @@
 import App from './App';
-import { BasicEditor } from './components/BasicEditor';
+import { EditorBasic } from './components/EditorBasic';
+import { KeyCommand } from './components/KeyCommand';
 
 export const routes = [
   {
@@ -10,6 +11,11 @@ export const routes = [
   {
     path: '/basic',
     exact: true,
-    component: BasicEditor,
+    component: EditorBasic,
+  },
+  {
+    path: '/keyinput',
+    exact: true,
+    component: KeyCommand,
   },
 ];
