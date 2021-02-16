@@ -1,12 +1,12 @@
 {
-  "name": "react-md-editor",
+  "name": "@lycolia/react-md-editor",
   "version": "0.1.0",
   "description": "react-md-editor",
   "author": "Lycolia",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Lycolia/react-md-editor.git"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -15,6 +15,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "draft-js": "^0.11.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-config": "^5.1.1",
