@@ -1,7 +1,7 @@
 import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
 
-export const EditorSample = () => {
+export const SimpleEditor = () => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
