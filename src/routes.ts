@@ -1,5 +1,5 @@
 import App from './App';
-import { SimpleEditor } from './components/SimpleEditor';
+import { BasicEditor } from './components/BasicEditor';
 
 export const routes = [
   {
@@ -10,6 +10,6 @@ export const routes = [
   {
     path: '/simple_editor',
     exact: true,
-    component: SimpleEditor,
+    component: BasicEditor,
   },
 ];
