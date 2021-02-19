@@ -1,5 +1,6 @@
 import App from './App';
 import { EditorBasic } from './components/EditorBasic';
+import { GetCarret } from './components/GetCarret';
 import { KeyCommand } from './components/KeyCommand';
 
 export const routes = [
@@ -17,5 +18,10 @@ export const routes = [
     path: '/keyinput',
     exact: true,
     component: KeyCommand,
+  },
+  {
+    path: '/getcarret',
+    exact: true,
+    component: GetCarret,
   },
 ];
