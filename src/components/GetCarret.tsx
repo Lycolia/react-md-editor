@@ -11,7 +11,15 @@ export const GetCarret = () => {
 
   useEffect(() => {
     const sel = editorState.getSelection();
-    console.log('row', sel.getAnchorKey(), 'col', sel.getAnchorOffset());
+    const con = editorState.getCurrentContent();
+    console.log(
+      'row',
+      sel.getAnchorKey(),
+      'col',
+      sel.getAnchorOffset(),
+      'con',
+      con.getBlockForKey(sel.getAnchorKey()).getText()
+    );
   });
   return <Editor editorState={editorState} onChange={setEditorState} />;
 };
