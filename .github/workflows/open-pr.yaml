@@ -1,0 +1,33 @@
+name: testing on opend PR to main
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+    branches:
+      - main
+# defined jobs
+jobs:
+  # job name
+  ubuntu-testing:
+    # runnner
+    runs-on: ubuntu-latest
+    # run commands
+    steps:
+      - name: clone repository
+        uses: actions/checkout@v2
+      - name: setup nodejs
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '14'
+          registry-url: 'https://registry.npmjs.org'
+      - name: cache multiple paths
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: npm continuous install
+        run: npm ci
+      - name: run testing
+        run: npm t
