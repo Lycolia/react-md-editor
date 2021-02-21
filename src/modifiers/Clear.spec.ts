@@ -1,6 +1,9 @@
 import Draft, { EditorState, SelectionState } from 'draft-js';
 import { getClearedBlockState } from './Clear';
 
+/**
+ * Modifier前後の値で比較
+ */
 const testCaseItems = [
   {
     name: 'headdingされた状態でエンターキーが押された想定',
