@@ -1,13 +1,10 @@
 import Draft, { EditorState, SelectionState } from 'draft-js';
 import { getClearedBlockState } from './Clear';
 
-/**
- * Modifier前後の値で比較
- */
 const testCaseItems = [
   {
-    name: 'headdingされた状態でエンターキーが押された想定',
-    before: {
+    name: 'input return key after hedding',
+    target: {
       entityMap: {},
       blocks: [
         {
@@ -21,7 +18,7 @@ const testCaseItems = [
         },
       ],
     },
-    after: {
+    result: {
       entityMap: {},
       blocks: [
         {
@@ -49,21 +46,19 @@ const testCaseItems = [
 describe('getClearedBlockState', () => {
   testCaseItems.map((item) => {
     it(item.name, () => {
-      // 前回の状態で作成
-      const contentState = Draft.convertFromRaw(item.before);
-      // selectionで強制的にレンダリング
+      // get target state
+      const contentState = Draft.convertFromRaw(item.target);
+      // render by selection
       const editorState = EditorState.forceSelection(
         EditorState.createWithContent(contentState),
         item.selection
       );
 
-      // 処理を実行し結果を取得
-      const afterEditorState = getClearedBlockState(editorState);
-      // 処理結果が、処理前結果と一致しない
-      expect(afterEditorState).not.toEqual(editorState);
-      // 処理結果が、想定値に一致する
-      expect(Draft.convertToRaw(afterEditorState.getCurrentContent())).toEqual(
-        item.after
+      // get cleared state
+      const resultEditorState = getClearedBlockState(editorState);
+      // cleared state equals result
+      expect(Draft.convertToRaw(resultEditorState.getCurrentContent())).toEqual(
+        item.result
       );
     });
   });
