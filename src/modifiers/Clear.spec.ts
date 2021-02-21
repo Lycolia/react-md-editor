@@ -43,7 +43,7 @@ const succeedCaseItems = [
   },
 ];
 
-describe('getClearedBlockState', () => {
+describe('getClearedBlockState:succeed', () => {
   // eslint-disable-next-line array-callback-return
   succeedCaseItems.map((item) => {
     // eslint-disable-next-line jest/valid-title
