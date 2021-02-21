@@ -6,7 +6,7 @@
 
 ### Supports syntax
 
-- [HEADERS](https://docs.github.com/ja/github/writing-on-github/basic-writing-and-formatting-syntax#headings)
+- [HEADERS](https://daringfireball.net/projects/markdown/syntax#header)
 - [BLOCKQUOTES](https://daringfireball.net/projects/markdown/syntax#blockquote)
 - [LISTS](https://daringfireball.net/projects/markdown/syntax#list)
 - [CODE BLOCKS](https://daringfireball.net/projects/markdown/syntax#precode)
@@ -16,7 +16,7 @@
 - [CODE](https://daringfireball.net/projects/markdown/syntax#code)
 - [IMAGES](https://daringfireball.net/projects/markdown/syntax#img)
 - [TABLES](https://docs.github.com/ja/github/writing-on-github/organizing-information-with-tables)
-- [Paragraphs](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#paragraphs)
+- [PARAGRAPHS](https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax#paragraphs)
 
 ### Editor functions
 
