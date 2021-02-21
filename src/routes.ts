@@ -3,6 +3,7 @@ import { Decorator } from './components/Decorator';
 import { EditorBasic } from './components/EditorBasic';
 import { GetCarret } from './components/GetCarret';
 import { KeyCommand } from './components/KeyCommand';
+import { ToggleBlock } from './components/ToggleBlock';
 
 export const routes = [
   {
@@ -29,5 +30,10 @@ export const routes = [
     path: '/decorator',
     exact: true,
     component: Decorator,
+  },
+  {
+    path: '/toggleblock',
+    exact: true,
+    component: ToggleBlock,
   },
 ];
