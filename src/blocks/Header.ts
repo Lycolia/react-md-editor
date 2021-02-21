@@ -3,10 +3,10 @@ import { getCurrentBlockText } from './Utils';
 
 export const getHeaderState = (editorState: EditorState) => {
   const currentText = getCurrentBlockText(editorState);
-  console.log(currentText);
   const sharpMatches = currentText.match(/^(#+) /);
   if (sharpMatches === null) return;
-  if (sharpMatches[1].length === 1) {
+  if (sharpMatches[1].length > 0) {
+    console.log(sharpMatches[1].length);
     const newContentState = HeaderStates[sharpMatches[1].length - 1](
       editorState
     );
