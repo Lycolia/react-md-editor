@@ -1,6 +1,10 @@
 import { Modifier, EditorState } from 'draft-js';
 
-export const clearBlockState = (editorState: EditorState) => {
+/**
+ * get cleared block state
+ * @param editorState
+ */
+export const getClearedBlockState = (editorState: EditorState) => {
   const newContentState = Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
