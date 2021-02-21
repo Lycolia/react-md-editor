@@ -1,7 +1,7 @@
 import App from './App';
 import { Decorator } from './components/Decorator';
 import { EditorBasic } from './components/EditorBasic';
-import { GetCarret } from './components/GetCarret';
+import { GetCaret } from './components/GetCarret';
 import { KeyCommand } from './components/KeyCommand';
 import { ToggleBlock } from './components/ToggleBlock';
 
@@ -22,9 +22,9 @@ export const routes = [
     component: KeyCommand,
   },
   {
-    path: '/getcarret',
+    path: '/getcaret',
     exact: true,
-    component: GetCarret,
+    component: GetCaret,
   },
   {
     path: '/decorator',

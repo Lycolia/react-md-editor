@@ -8,8 +8,7 @@ import {
 import { useState } from 'react';
 
 /**
- * Ctrl+Bなどのキーボードコマンドイベント
- * Ctrl+Returnや文字入力では反応しない
+ * keyboard combination event
  */
 export const KeyCommand = () => {
   const [editorState, setEditorState] = useState(() =>

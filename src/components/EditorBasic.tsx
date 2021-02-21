@@ -2,7 +2,7 @@ import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
 
 /**
- * 基本のエディタ
+ * basics editor
  */
 export const EditorBasic = () => {
   const [editorState, setEditorState] = useState(() =>

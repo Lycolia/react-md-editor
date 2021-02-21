@@ -2,9 +2,9 @@ import { Editor, EditorState } from 'draft-js';
 import { useEffect, useState } from 'react';
 
 /**
- * 基本のエディタ
+ * get caret position
  */
-export const GetCarret = () => {
+export const GetCaret = () => {
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );

@@ -29,6 +29,9 @@ export const useEditor = () => {
   };
 };
 
+/**
+ * decorator
+ */
 export const Decorator = () => {
   const editor = useEditor();
 
