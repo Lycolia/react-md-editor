@@ -1,7 +1,6 @@
 import { Editor, EditorState, Modifier } from 'draft-js';
 import { useState } from 'react';
 import { getHeaderState } from '../blocks/Header';
-import { getCurrentBlockText } from '../blocks/Utils';
 
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() =>
@@ -9,28 +8,9 @@ export const useEditor = () => {
   );
 
   const onChange = (ev: EditorState) => {
-    const lineText = ev
-      .getCurrentContent()
-      .getBlockMap()
-      .get(ev.getSelection().getAnchorKey())
-      .getText();
-
-    console.log(lineText);
-    console.log(getCurrentBlockText(ev));
-    getHeaderState(ev);
-
-    if (lineText.match(/^# .+/) !== null) {
-      const newContentState = Modifier.setBlockType(
-        ev.getCurrentContent(),
-        ev.getSelection(),
-        'header-one'
-      );
-      const newEditorState = EditorState.push(
-        ev,
-        newContentState,
-        'change-block-data'
-      );
-      setEditorState(newEditorState);
+    const newState = getHeaderState(ev);
+    if (newState !== undefined) {
+      setEditorState(newState);
     } else {
       const newContentState = Modifier.setBlockType(
         ev.getCurrentContent(),
