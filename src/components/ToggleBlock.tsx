@@ -1,7 +1,7 @@
 import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
-import { getClearedBlockState } from '../blocks/Clear';
-import { getHeaddingBlockState } from '../blocks/Header';
+import { getClearedBlockState } from '../modifiers/Clear';
+import { getHeaddingBlockState } from '../modifiers/Header';
 
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() =>
