@@ -2,23 +2,20 @@ import { EditorState, Modifier } from 'draft-js';
 import { getCurrentBlockText } from './Utils';
 
 /**
- * get headding block state
+ * get Header block state
  * @param editorState
  */
-export const getHeaddingBlockState = (editorState: EditorState) => {
+export const getHeaderBlockState = (editorState: EditorState) => {
   const currentText = getCurrentBlockText(editorState);
   const sharpMatch = currentText.match(/^(#+) /);
   if (sharpMatch === null) return;
   if (sharpMatch[1].length > 0) {
-    console.log(sharpMatch[1].length);
-    const newContentState = HeaddingStates[sharpMatch[1].length - 1](
-      editorState
-    );
+    const newContentState = HeaderStates[sharpMatch[1].length - 1](editorState);
     return EditorState.push(editorState, newContentState, 'change-block-data');
   }
 };
 
-const getHeaddingOneBlockState = (editorState: EditorState) => {
+const getHeaderOneBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -26,7 +23,7 @@ const getHeaddingOneBlockState = (editorState: EditorState) => {
   );
 };
 
-const getHeaddingTwoBlockState = (editorState: EditorState) => {
+const getHeaderTwoBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -34,7 +31,7 @@ const getHeaddingTwoBlockState = (editorState: EditorState) => {
   );
 };
 
-const getHeaddingThreeBlockState = (editorState: EditorState) => {
+const getHeaderThreeBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -42,7 +39,7 @@ const getHeaddingThreeBlockState = (editorState: EditorState) => {
   );
 };
 
-const getHeaddingFourBlockState = (editorState: EditorState) => {
+const getHeaderFourBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -50,7 +47,7 @@ const getHeaddingFourBlockState = (editorState: EditorState) => {
   );
 };
 
-const getHeaddingFiveBlockState = (editorState: EditorState) => {
+const getHeaderFiveBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -58,7 +55,7 @@ const getHeaddingFiveBlockState = (editorState: EditorState) => {
   );
 };
 
-const getHeaddingSixBlockState = (editorState: EditorState) => {
+const getHeaderSixBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -66,11 +63,11 @@ const getHeaddingSixBlockState = (editorState: EditorState) => {
   );
 };
 
-export const HeaddingStates = [
-  getHeaddingOneBlockState,
-  getHeaddingTwoBlockState,
-  getHeaddingThreeBlockState,
-  getHeaddingFourBlockState,
-  getHeaddingFiveBlockState,
-  getHeaddingSixBlockState,
+export const HeaderStates = [
+  getHeaderOneBlockState,
+  getHeaderTwoBlockState,
+  getHeaderThreeBlockState,
+  getHeaderFourBlockState,
+  getHeaderFiveBlockState,
+  getHeaderSixBlockState,
 ];

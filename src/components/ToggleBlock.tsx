@@ -1,7 +1,7 @@
 import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
 import { getClearedBlockState } from '../modifiers/Clear';
-import { getHeaddingBlockState } from '../modifiers/Header';
+import { getHeaderBlockState } from '../modifiers/Header';
 
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() =>
@@ -9,7 +9,7 @@ export const useEditor = () => {
   );
 
   const onChange = (ev: EditorState) => {
-    const newState = getHeaddingBlockState(ev);
+    const newState = getHeaderBlockState(ev);
     if (newState !== undefined) {
       setEditorState(newState);
     } else {

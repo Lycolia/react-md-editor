@@ -1,7 +1,7 @@
 import Draft, { EditorState, SelectionState } from 'draft-js';
 import { getClearedBlockState } from './Clear';
 
-const testCaseItems = [
+const succeedCaseItems = [
   {
     name: 'input return key after hedding',
     target: {
@@ -45,7 +45,7 @@ const testCaseItems = [
 
 describe('getClearedBlockState', () => {
   // eslint-disable-next-line array-callback-return
-  testCaseItems.map((item) => {
+  succeedCaseItems.map((item) => {
     // eslint-disable-next-line jest/valid-title
     it(item.name, () => {
       // get target state
@@ -56,9 +56,9 @@ describe('getClearedBlockState', () => {
         item.selection
       );
 
-      // get cleared state
+      // get state
       const resultEditorState = getClearedBlockState(editorState);
-      // cleared state equals result
+      // state equals result
       expect(Draft.convertToRaw(resultEditorState.getCurrentContent())).toEqual(
         item.result
       );
