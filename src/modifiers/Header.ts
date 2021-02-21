@@ -18,7 +18,7 @@ export const getHeaddingBlockState = (editorState: EditorState) => {
   }
 };
 
-export const getHeaddingOneBlockState = (editorState: EditorState) => {
+const getHeaddingOneBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -26,7 +26,7 @@ export const getHeaddingOneBlockState = (editorState: EditorState) => {
   );
 };
 
-export const getHeaddingTwoBlockState = (editorState: EditorState) => {
+const getHeaddingTwoBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -34,7 +34,7 @@ export const getHeaddingTwoBlockState = (editorState: EditorState) => {
   );
 };
 
-export const getHeaddingThreeBlockState = (editorState: EditorState) => {
+const getHeaddingThreeBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -42,7 +42,7 @@ export const getHeaddingThreeBlockState = (editorState: EditorState) => {
   );
 };
 
-export const getHeaddingFourBlockState = (editorState: EditorState) => {
+const getHeaddingFourBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -50,7 +50,7 @@ export const getHeaddingFourBlockState = (editorState: EditorState) => {
   );
 };
 
-export const getHeaddingFiveBlockState = (editorState: EditorState) => {
+const getHeaddingFiveBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
@@ -58,7 +58,7 @@ export const getHeaddingFiveBlockState = (editorState: EditorState) => {
   );
 };
 
-export const getHeaddingSixBlockState = (editorState: EditorState) => {
+const getHeaddingSixBlockState = (editorState: EditorState) => {
   return Modifier.setBlockType(
     editorState.getCurrentContent(),
     editorState.getSelection(),
