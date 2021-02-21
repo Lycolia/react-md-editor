@@ -3,7 +3,7 @@ import { getClearedBlockState } from './Clear';
 
 const succeedCaseItems = [
   {
-    name: 'input return key after hedding',
+    name: 'input return key after header',
     target: {
       entityMap: {},
       blocks: [
