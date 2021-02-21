@@ -3,13 +3,11 @@ import { getCurrentBlockText } from './Utils';
 
 export const getHeaderState = (editorState: EditorState) => {
   const currentText = getCurrentBlockText(editorState);
-  const sharpMatches = currentText.match(/^(#+) /);
-  if (sharpMatches === null) return;
-  if (sharpMatches[1].length > 0) {
-    console.log(sharpMatches[1].length);
-    const newContentState = HeaderStates[sharpMatches[1].length - 1](
-      editorState
-    );
+  const sharpMatch = currentText.match(/^(#+) /);
+  if (sharpMatch === null) return;
+  if (sharpMatch[1].length > 0) {
+    console.log(sharpMatch[1].length);
+    const newContentState = HeaderStates[sharpMatch[1].length - 1](editorState);
     return EditorState.push(editorState, newContentState, 'change-block-data');
   }
 };
