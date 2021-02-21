@@ -1,5 +1,7 @@
 import { Editor, EditorState, Modifier } from 'draft-js';
 import { useState } from 'react';
+import { getHeaderState } from '../blocks/Header';
+import { getCurrentBlockText } from '../blocks/Utils';
 
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() =>
@@ -12,6 +14,10 @@ export const useEditor = () => {
       .getBlockMap()
       .get(ev.getSelection().getAnchorKey())
       .getText();
+
+    console.log(lineText);
+    console.log(getCurrentBlockText(ev));
+    getHeaderState(ev);
 
     if (lineText.match(/^# .+/) !== null) {
       const newContentState = Modifier.setBlockType(
