@@ -13,12 +13,12 @@ export const handleDecorations = () => {
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() => handleDecorations());
 
-  const onChange = (ev: React.SetStateAction<EditorState>) => {
+  const onChange = (ev: EditorState) => {
     console.log(
-      editorState.getLastChangeType(),
-      editorState.getCurrentContent().getPlainText(),
-      editorState.getCurrentContent().getBlockMap(),
-      editorState.getCurrentContent()
+      ev.getLastChangeType(),
+      ev.getCurrentContent().getPlainText(),
+      ev.getCurrentContent().getBlockMap(),
+      ev.getCurrentContent()
     );
     setEditorState(ev);
   };
