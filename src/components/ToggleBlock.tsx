@@ -1,6 +1,7 @@
-import { Editor, EditorState, Modifier } from 'draft-js';
+import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
-import { getHeaderState } from '../blocks/Header';
+import { clearBlockState } from '../blocks/Clear';
+import { getHeaderBlockState } from '../blocks/Header';
 
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() =>
@@ -8,21 +9,11 @@ export const useEditor = () => {
   );
 
   const onChange = (ev: EditorState) => {
-    const newState = getHeaderState(ev);
+    const newState = getHeaderBlockState(ev);
     if (newState !== undefined) {
       setEditorState(newState);
     } else {
-      const newContentState = Modifier.setBlockType(
-        ev.getCurrentContent(),
-        ev.getSelection(),
-        'unstyled'
-      );
-      const newEditorState = EditorState.push(
-        ev,
-        newContentState,
-        'change-block-data'
-      );
-      setEditorState(newEditorState);
+      setEditorState(clearBlockState(ev));
     }
   };
 
