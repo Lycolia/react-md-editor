@@ -44,7 +44,9 @@ const testCaseItems = [
 ];
 
 describe('getClearedBlockState', () => {
+  // eslint-disable-next-line array-callback-return
   testCaseItems.map((item) => {
+    // eslint-disable-next-line jest/valid-title
     it(item.name, () => {
       // get target state
       const contentState = Draft.convertFromRaw(item.target);
