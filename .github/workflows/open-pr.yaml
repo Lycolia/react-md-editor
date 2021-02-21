@@ -1,0 +1,27 @@
+name: testing on opend PR to main
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+    branches:
+      - main
+# defined jobs
+jobs:
+  # job name
+  ubuntu-testing:
+    # runnner
+    runs-on: ubuntu-latest
+    # run commands
+    steps:
+      # clone repository
+      - uses: actions/checkout@v2
+      # setup nodejs
+      - uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '14'
+          registry-url: 'https://registry.npmjs.org'
+      - name: npm continuous install
+        run: npm ci
+      - name: run testing
+        run: npm t
