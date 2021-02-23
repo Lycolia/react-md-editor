@@ -1,7 +1,7 @@
 import Draft, { EditorState, SelectionState } from 'draft-js';
-import { getCurrentBlockText } from './Utils';
+import { getCaretAnchorBlockText } from './Utils';
 
-const succeedCaseItems = [
+const testCaseItems = [
   {
     name: 'get text from unstyled',
     target: {
@@ -186,9 +186,9 @@ const succeedCaseItems = [
   },
 ];
 
-describe('getCurrentBlockText:succeed', () => {
+describe('getCaretAnchorBlockText', () => {
   // eslint-disable-next-line array-callback-return
-  succeedCaseItems.map((item) => {
+  testCaseItems.map((item) => {
     // eslint-disable-next-line jest/valid-title
     it(item.name, () => {
       // get target state
@@ -200,7 +200,7 @@ describe('getCurrentBlockText:succeed', () => {
       );
 
       // get state
-      const resultText = getCurrentBlockText(editorState);
+      const resultText = getCaretAnchorBlockText(editorState);
       // state equals result
       expect(resultText).toBe(item.result);
     });

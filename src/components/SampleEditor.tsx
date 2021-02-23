@@ -1,7 +1,6 @@
 import { Editor, EditorState } from 'draft-js';
 import { useState } from 'react';
-import { getClearedBlockState } from '../modifiers/Clear';
-import { getHeaderBlockState } from '../modifiers/Header';
+import { reduceBlockState } from '../modifiers/blocks/BlockReducer';
 
 export const useEditor = () => {
   const [editorState, setEditorState] = useState(() =>
@@ -9,12 +8,7 @@ export const useEditor = () => {
   );
 
   const onChange = (ev: EditorState) => {
-    const newState = getHeaderBlockState(ev);
-    if (newState !== undefined) {
-      setEditorState(newState);
-    } else {
-      setEditorState(getClearedBlockState(ev));
-    }
+    setEditorState(reduceBlockState(ev));
   };
 
   return {
@@ -23,7 +17,7 @@ export const useEditor = () => {
   };
 };
 
-export const ToggleBlock = () => {
+export const SampleEditor = () => {
   const editor = useEditor();
 
   return <Editor editorState={editor.editorState} onChange={editor.onChange} />;

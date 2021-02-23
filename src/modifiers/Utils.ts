@@ -1,13 +1,13 @@
 import { EditorState } from 'draft-js';
 
-/**
- * get current inputed block text
- * @param editorState EditorState
- */
-export const getCurrentBlockText = (editorState: EditorState) => {
+export const getCaretAnchorBlockText = (editorState: EditorState) => {
   return editorState
     .getCurrentContent()
     .getBlockMap()
-    .get(editorState.getSelection().getAnchorKey())
+    .get(getCaretAnchorKey(editorState))
     .getText();
+};
+
+export const getCaretAnchorKey = (editorState: EditorState) => {
+  return editorState.getSelection().getAnchorKey();
 };

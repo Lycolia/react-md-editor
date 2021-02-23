@@ -1,17 +1,19 @@
 import { EditorState, Modifier } from 'draft-js';
-import { getCurrentBlockText } from './Utils';
+import { getCaretAnchorBlockText } from '../Utils';
 
 /**
  * get Header block state
  * @param editorState
+ * @returns match header then new header state else current state
  */
 export const getHeaderBlockState = (editorState: EditorState) => {
-  const currentText = getCurrentBlockText(editorState);
+  const currentText = getCaretAnchorBlockText(editorState);
   const sharpMatch = currentText.match(/^(#+) /);
-  if (sharpMatch === null) return;
-  if (sharpMatch[1].length > 0) {
+  if (sharpMatch !== null) {
     const newContentState = HeaderStates[sharpMatch[1].length - 1](editorState);
     return EditorState.push(editorState, newContentState, 'change-block-data');
+  } else {
+    return editorState;
   }
 };
 
