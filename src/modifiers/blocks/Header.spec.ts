@@ -1,7 +1,7 @@
 import Draft, { EditorState, SelectionState } from 'draft-js';
 import { getHeaderBlockState } from './Header';
 
-const failedCaseItems = [
+const testCaseItems = [
   {
     name: 'single `#` is rendered unstyled',
     target: {
@@ -41,9 +41,6 @@ const failedCaseItems = [
       hasFocus: true,
     }),
   },
-];
-
-const succeedCaseItems = [
   {
     name: '`# ` is rendered Header 1',
     target: {
@@ -280,29 +277,9 @@ const succeedCaseItems = [
   },
 ];
 
-describe('getHeaderBlockState:failed', () => {
+describe('getHeaderBlockState', () => {
   // eslint-disable-next-line array-callback-return
-  failedCaseItems.map((item) => {
-    // eslint-disable-next-line jest/valid-title
-    it(item.name, () => {
-      // get target state
-      const contentState = Draft.convertFromRaw(item.target);
-      // render by selection
-      const editorState = EditorState.forceSelection(
-        EditorState.createWithContent(contentState),
-        item.selection
-      );
-
-      // get state
-      const resultEditorState = getHeaderBlockState(editorState);
-      expect(resultEditorState).toBeUndefined();
-    });
-  });
-});
-
-describe('getHeaderBlockState:succeed', () => {
-  // eslint-disable-next-line array-callback-return
-  succeedCaseItems.map((item) => {
+  testCaseItems.map((item) => {
     // eslint-disable-next-line jest/valid-title
     it(item.name, () => {
       // get target state
